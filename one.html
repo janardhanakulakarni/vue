@@ -1,0 +1,40 @@
+<head>
+    <title>Vue</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+<body>
+   <div id='app'>
+      <h1 class="a">{{ header.toUpperCase() }}</h1>
+      <img src="one.jpeg" style="padding-left: 0ch;"/><br><br>
+    
+      <input type="text" v-model="newitem" placeholder="add an items">
+      <button class="b" :disabled="newitem.length===0" class="btn btn-primary" @click="save">save item</button><br>
+      <a href="https://www.justdial.com/Davangere/Vishal-Mega-Mart/9999P8192-8192-181128115038-B2Y5_BZDET">click here for more info</a>
+      <ul class="c">
+          <li v-for="x in item">{{ x }}</li>
+      </ul>
+   </div>   
+</body>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var materials=new Vue({
+        el:'#app',
+        data:{
+            header:"vishal mart products",
+            newitem:'',
+            item:[
+                't-shirts',
+                'utensiles',
+                'pants',
+                 ]
+        },
+        methods:{
+            save:function(){
+                this.item.push(this.newitem);
+                this.newitem='';
+            }
+        }
+    });
+</script>
+
+</html>
